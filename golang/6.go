@@ -1,10 +1,4 @@
-package main
-
-import "fmt"
-
-func main() {
-	fmt.Println(convert("PAYPALISHIRING", 3))
-}
+package main 
 
 func convert(s string, numRows int) (res string) {
 	if numRows == 1 {

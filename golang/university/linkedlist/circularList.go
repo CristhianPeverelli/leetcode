@@ -43,15 +43,3 @@ func printFromZero(list circList) {
 		list.head = list.head.next
 	}
 }
-
-func main() {
-	var list circList
-	list = addNewNodeC(2, list)
-	list = addNewNodeC(8, list)
-	list = addNewNodeC(3, list)
-	list = addNewNodeC(9, list)
-	list = addNewNodeC(6, list)
-	list = addNewNodeC(0, list)
-	list = addNewNodeC(1, list)
-	printFromZero(list)
-}

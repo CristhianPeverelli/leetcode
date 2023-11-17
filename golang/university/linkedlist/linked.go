@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+/*
 type listNode struct {
 	item int
 	next *listNode
@@ -23,6 +24,15 @@ func addNewNode(value int, list linkedList) linkedList {
 	list.head = node
 	return list
 }
+
+
+func pop(list linkedList) int {
+	value := list.head.item
+	list.head = list.head.next
+	return value
+}
+
+*/
 
 func printList(list linkedList) {
 	for list.head != nil {

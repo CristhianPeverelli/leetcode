@@ -1,14 +1,5 @@
 package main
 
-import "fmt"
-
-func main() {
-	arr := []int{5, 2, 3, 7, 36, 12, 45, 63, 12}
-	fmt.Println(arr)
-	a := mergeSort(arr)
-	fmt.Println(a)
-}
-
 func mergeSort(arr []int) []int {
 	if len(arr) <= 1 {
 		return arr

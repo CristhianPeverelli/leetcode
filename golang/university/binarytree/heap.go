@@ -1,6 +1,7 @@
 package main
 
-/*
+import "fmt"
+
 type treeNode struct {
 	left  *treeNode
 	right *treeNode
@@ -14,39 +15,27 @@ type tree struct {
 func newNode(val int) *treeNode {
 	return &treeNode{nil, nil, val}
 }
-*/
 
-func buildTreeRec(values []int, index int) (binary *treeNode) {
-	if index > len(values)-1 {
-		return nil
+func buildHeap(tree *treeNode) *treeNode {
+	if tree != nil {
+		if tree.left != nil {
+			buildHeap(tree.left)
+		}
+		if tree.right != nil {
+			buildHeap(tree.right)
+		}
+		rearrange(tree)
 	}
-	binary = newNode(values[index])
-	binary.left = buildTreeRec(values, (2*index)+1)
-	binary.right = buildTreeRec(values, (2*index)+2)
-	return binary
+	return tree
 }
 
-func buildTree(values []int) (binary *tree) {
-	binary = new(tree)
-	binary.root = buildTreeRec(values, 0)
-	return
-}
-
-/*
 func printPreOrder(btree *treeNode) {
 	if btree != nil {
 		fmt.Print(btree.item, " - ")
 		printPreOrder(btree.left)
 		printPreOrder(btree.right)
-	}
-}
-
-
-func printInOrder(btree *treeNode) {
-	if btree != nil {
-		printInOrder(btree.left)
-		fmt.Print(btree.item, " - ")
-		printInOrder(btree.right)
+	} else {
+		fmt.Print("X - ")
 	}
 }
 
@@ -58,9 +47,38 @@ func printPostOrder(btree *treeNode) {
 	}
 }
 
-*/
+func rearrange(tree *treeNode) {
+	ok := false
+	if tree != nil {
+		for !ok {
+			if tree.left == nil && tree.right == nil {
+				ok = true
+			} else {
+				val := tree.item
+				node := maxNode(tree)
+				if node != nil && node.item > val {
+					tree.item, node.item = node.item, tree.item
+					tree = node
+				} else {
+					ok = true
+				}
+			}
+		}
+	}
+}
 
-/*
+func maxNode(tree *treeNode) *treeNode {
+	if tree.left == nil {
+		return tree.right
+	} else if tree.right == nil {
+		return tree.left
+	} else if tree.left.item > tree.right.item {
+		return tree.left
+	} else {
+		return tree.right
+	}
+}
+
 func main() {
 	t := &tree{nil}
 	t.root = &treeNode{nil, nil, 78}
@@ -77,13 +95,6 @@ func main() {
 
 	printPreOrder(t.root)
 	fmt.Println()
-	printInOrder(t.root)
-	fmt.Println()
-	printPostOrder(t.root)
-	fmt.Println()
-
-	values := []int{69, 89, 28, 39, 66, 44, 12, 2, 71}
-	tree := buildTree(values)
-	printPreOrder(tree.root)
+	t.root = buildHeap(t.root)
+	printPreOrder(t.root)
 }
-*/

@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+/*
 type listNode struct {
 	item int
 	next *listNode
@@ -14,6 +15,7 @@ type listNode struct {
 type linkedList struct {
 	head *listNode
 }
+*/
 
 func newNode(value int) *listNode {
 	node := new(listNode)
@@ -90,9 +92,11 @@ func convert(exp string) (res string) {
 	return
 }
 
+/*
 func main() {
 	result := valutate("5 3 - 2 *")
 	fmt.Println(result)
 	result2 := convert("( ( 5 - 3 ) * 2 )")
 	fmt.Println(result2)
 }
+*/

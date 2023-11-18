@@ -1,14 +1,5 @@
 package main
 
-import "fmt"
-
-func main() {
-	arr := []int{5, 2, 3, 7, 36, 12, 45, 63, 12}
-	fmt.Println(arr)
-	a := quickSort(arr)
-	fmt.Println(a)
-}
-
 func quickSortAlt(values []int) []int {
 	if len(values) > 1 {
 		pivotIndex := len(values) - 1

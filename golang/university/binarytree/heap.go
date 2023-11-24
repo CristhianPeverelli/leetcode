@@ -79,6 +79,7 @@ func maxNode(tree *treeNode) *treeNode {
 	}
 }
 
+/*
 func main() {
 	t := &tree{nil}
 	t.root = &treeNode{nil, nil, 78}
@@ -98,3 +99,4 @@ func main() {
 	t.root = buildHeap(t.root)
 	printPreOrder(t.root)
 }
+*/

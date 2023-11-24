@@ -39,8 +39,22 @@ func buildHeap(values []int) []int {
 	return values
 }
 
+func heapsort(values []int) []int {
+	values = buildHeap(values)
+	sorted := []int{}
+	for len(values) > 0 {
+		sorted = append(sorted, values[0])
+		values[0] = values[len(values)-1]
+		values = values[:len(values)-1]
+		rearrange(values, 0, len(values)-1)
+	}
+	return sorted
+}
+
 func main() {
 	values := []int{69, 89, 28, 39, 66, 44, 12, 2, 71}
 	heap := buildHeap(values)
+	fmt.Println(heap)
+	heap = heapsort(values)
 	fmt.Println(heap)
 }
